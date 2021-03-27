@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "bp-GoogleAuth-RN",
-    "slug": "bp-GoogleAuth-RN",
+    "name": "RiegoApp",
+    "slug": "RiegoApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

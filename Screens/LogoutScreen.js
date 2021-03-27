@@ -12,10 +12,10 @@ export default class MainScreen extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <Text>Te has loggeado correctamente</Text>
+                <Text>Seguro que quiere salir?</Text>
                 <Button
                     onPress={() => this.handlerLogout()}
-                    title="Cerrar sesión"
+                    title="Logout"
                 />
             </View>
         );

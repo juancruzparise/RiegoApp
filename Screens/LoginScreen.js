@@ -11,7 +11,7 @@ export default class LoginScreen extends Component{
 
         try {
             const result = await Google.logInAsync({
-                androidClientId: "ANDROID-GOOGLE-CONSOLE-KEY",
+                androidClientId: "546444580134-rd2bngnmh6gr34jh8d8n19lf0kkirpfl.apps.googleusercontent.com",
                 scopes: ['profile', 'email'],
             });
     
