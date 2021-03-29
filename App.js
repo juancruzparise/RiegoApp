@@ -2,18 +2,20 @@ import React, {Component} from 'react';
 import {Icon} from "react-native-elements";
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from "@react-navigation/native";
-
 import LoginScreen from "./Screens/LoginScreen";
 import LogoutScreen from "./Screens/LogoutScreen";
 import PlantasScreen from "./Screens/PlantasScreen";
-
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
 const Tab = createBottomTabNavigator();
+
+
+
 
 export default class App extends Component{
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn:false}
+        this.state = {isLoggedIn:true}
     }
 
     setLogin(){
@@ -23,9 +25,7 @@ export default class App extends Component{
     setLogout(){
         this.setState({isLoggedIn:false});
     }
-
-    render(){
-
+    render(){    
         if(this.state.isLoggedIn){
             return(
                 <NavigationContainer>
@@ -40,7 +40,7 @@ export default class App extends Component{
                             }}
                         />
                         <Tab.Screen
-                            name="Logout"
+                            name="Cerrar Sesión"
                             component={LogoutScreen}
                             options={{
                                 tabBarIcon: ({ color, size }) => (
@@ -55,5 +55,7 @@ export default class App extends Component{
             return <LoginScreen onLogin={() => this.setLogin()}/>
         }
     }
+    
 
 }
+
