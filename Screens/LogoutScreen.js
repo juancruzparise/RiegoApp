@@ -12,11 +12,12 @@ export default class MainScreen extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <Text>Seguro que quiere salir?</Text>
-                <Button
+                <Text style={styles.innerText}>¿Seguro que quiere salir?</Text>
+                <Button style={styles.buttonStyle}
                     onPress={() => this.handlerLogout()}
-                    title="Logout"
+                    title="Cerrar Sesión"
                 />
+                
             </View>
         );
     }
@@ -26,8 +27,17 @@ export default class MainScreen extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#7CA1B4',
         alignItems: 'center',
         justifyContent: 'center',
+         
     },
+    innerText:{
+        color: '#FAFAFA',
+        margin: 50
+    },
+    buttonStyle:{
+
+    },
+    
 });

@@ -34,7 +34,7 @@ export default class LoginScreen extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <Button
+                <Button style={styles.buttonStyles}
                     onPress={() => this._signInWithGoogle()}
                     title="Iniciar sesión con Google"
                 />
@@ -47,9 +47,12 @@ export default class LoginScreen extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#424242',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    buttonStyles:{
+        
     },
 });
 
