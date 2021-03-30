@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 
-export default class MainScreen extends Component{
+export default class LogoutScreen extends Component{
 
     handlerLogout(){
         this.props.onLogout();

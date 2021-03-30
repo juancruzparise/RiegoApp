@@ -1,26 +1,14 @@
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button, Image} from 'react-native';
-import { withTheme } from 'react-native-elements';
-  
+import { StyleSheet, Text, View, Button, Image} from 'react-native'; 
  
 
-export default class MainScreen extends Component{
+export default class PlantasScreen extends Component{
 
     handlerLogout(){
         this.props.onLogout();
     }
 
-    render(){
-        return (
-            <View style={styles.container}>
-              
-                 
-            </View>
-            
-        );
-        
-    }
     render() {
       
         return (
@@ -46,6 +34,7 @@ export default class MainScreen extends Component{
                 </Text>
                 <Button style={styles.buttonStyle}
                     title="Riego auto"
+                    onPress={() => navigation.navigate('RegarScreen')}
                 />
               </View>
             </View>
