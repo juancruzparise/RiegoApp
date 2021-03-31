@@ -9,10 +9,12 @@ export default class RegarScreen extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <Button style={styles.buttonStyles}
-                    title="Iniciar sesión con Google"
-                />
-            </View>
+            <Text style={styles.innerText}>Configuracion de la planta seleccionada</Text>
+            <Button style={styles.buttonStyle}
+                onPress={() => this.handlerLogout()}
+                title="Temperatura "
+            />
+        </View>
         );
     }
 }
