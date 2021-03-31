@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Button, Image} from 'react-native';
 import { withTheme } from 'react-native-elements';
-  
  
 
 export default class RegarScreen extends Component{
