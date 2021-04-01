@@ -12,6 +12,8 @@ export default class PlantasScreen extends Component{
     handlerBtn(){
       this.props.navigation.navigate('Regar');
     }
+    
+    
 
     render() {
       
