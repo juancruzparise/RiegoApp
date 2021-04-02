@@ -1,39 +1,38 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button, Image, Switch} from 'react-native';
-import { withTheme } from 'react-native-elements';
+import { StyleSheet, Text, View, Switch} from 'react-native';
 import {Icon} from "react-native-elements";
-import { Input, CheckBox } from 'react-native-elements';
 
 export default class RegarScreen extends Component{
-    state = {  
-        switchValue: false  
-    };  
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+          riego: false,
+          temp: 35,
+          humedad: 60
+        };
+    }
 
     render(){
         return (
-            <View style={styles.container}>
+           <View style={styles.container}>
                 
             <View style={styles.texttodojunto}>
-            <Image source={require('../assets/temperatura.png')} style={styles.icon} />
-            <Text style={styles.innerTextt}>Temperatura : </Text>
-            <Text style={styles.innerTextt}>35 ° C</Text>
+                <Icon type="entypo" name="thermometer" size={19}/>
+                <Text style={styles.innerTextt}>Temperatura : {this.state.temp}°C</Text>
             </View>
 
             <View style={styles.texttodojunto}>
-            <Image source={require('../assets/humedad.png')} style={styles.icon} />
-            <Text style={styles.innerTextt}>Humedad : </Text>   
-            <Text style={styles.innerTextt}>60 % </Text> 
+                <Icon type="entypo" name="water" size={19}/>
+                <Text style={styles.innerTextt}>Humedad : {this.state.humedad}%</Text>   
             </View>            
-            {/* <Button style={styles.buttonStyle}
-                onPress={() => this.handlerLogout()}
-                title="Temperatura "
-            /> */}
+
             <View style={styles.switchCointainer}>  
                 <Text style={styles.textStyle}>Iniciar riego de planta</Text>  
                 <Switch style={styles.switchStyle}
-                    value={this.state.switchValue}  
-                    onValueChange ={(switchValue)=>this.setState({switchValue})}/> 
-                <Text style={styles.textStyle2}>{this.state.switchValue ? 'Encendido' :'Apagado'}</Text>   
+                    value={this.state.riego}  
+                    onValueChange ={(riego)=>this.setState({riego})}/> 
+                <Text style={styles.textStyle2}>{this.state.riego ? 'Encendido' :'Apagado'}</Text>   
             </View>  
         </View>
         
@@ -55,8 +54,7 @@ const styles = StyleSheet.create({
     innerTextt:{
         textAlign: 'center',
         // fontWeight: 'bold',
-        fontSize: 16,
-        color: 'white'
+        fontSize: 16
         
     },
     buttonStyle:{

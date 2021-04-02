@@ -38,7 +38,7 @@ export default class App extends Component{
     
     constructor(props){
         super(props);
-        this.state = {isLoggedIn:true}
+        this.state = {isLoggedIn:false}
     }
 
     setLogin(){
@@ -53,7 +53,7 @@ export default class App extends Component{
         if(this.state.isLoggedIn){
             return(
                 <NavigationContainer>
-                    <Tab.Navigator initialRouteName="Plantas">
+                    <Tab.Navigator initialRouteName="Plantas"> 
                     <Tab.Screen
                             name="Plantas"
                             component={PlantasNavigator}
@@ -65,8 +65,7 @@ export default class App extends Component{
                         />
                         <Tab.Screen
                             name="Cerrar Sesión"
-                            component={LogoutScreen}
-                            onLogout={() => this.setLogout()}
+                            children={()=><LogoutScreen onLogout={() => this.setLogout()}/>}
                             options={{
                                 tabBarIcon: ({ color, size }) => (
                                     <Icon type="antdesign" name="logout" color={color} size={size} />
