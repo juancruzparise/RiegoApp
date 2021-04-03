@@ -10,19 +10,29 @@ export default class RegarScreen extends Component{
         super(props);
         this.state = {
           riego: null,
-          temp: 35,
-          humedad: 60,
+          temp: null,
+          humedad: null,
           isReady: false
         };
     }
 
     async componentDidMount() {
-        await
+        await 
             Helpers.getRiego((plantaRiego) => {
                 this.setState({
                     riego: plantaRiego
                 })
                 this.setState({ isReady: true });
+            })
+            Helpers.getHumedad((humedadPlanta) => {
+                this.setState({
+                    humedad: humedadPlanta
+                })
+            })
+            Helpers.getTemp((tempPlanta) => {
+                this.setState({
+                    temp: tempPlanta
+                })
             })
       }
 
@@ -48,7 +58,7 @@ export default class RegarScreen extends Component{
                 <Text style={styles.textStyle}>Iniciar riego de planta</Text>  
                 <Switch style={styles.switchStyle}
                     value={this.state.riego}  
-                    onValueChange ={(riego)=>this.setState({riego})}/> 
+                    onValueChange ={(riego) => { this.setState({riego}); Helpers.setRiego(riego);}}/> 
                 <Text style={styles.textStyle2}>{this.state.riego ? 'Encendido' :'Apagado'}</Text>   
             </View>  
         </View>
