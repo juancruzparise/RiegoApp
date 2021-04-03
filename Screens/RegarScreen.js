@@ -9,22 +9,22 @@ export default class RegarScreen extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          riego: Helpers.getRiego(),
+          riego: null,
           temp: 35,
           humedad: 60,
-          isReady: true
+          isReady: false
         };
     }
 
-    /*async componentDidMount() {
+    async componentDidMount() {
         await
             Helpers.getRiego((plantaRiego) => {
                 this.setState({
                     riego: plantaRiego
                 })
+                this.setState({ isReady: true });
             })
-            this.setState({ isReady: true });
-      }*/
+      }
 
     render(){
         if (!this.state.isReady) {
