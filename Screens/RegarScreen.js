@@ -1,17 +1,30 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Switch} from 'react-native';
 import {Icon} from "react-native-elements";
+import Helpers from  '../utils/Helpers';
 
 export default class RegarScreen extends Component{
     
     constructor(props) {
         super(props);
         this.state = {
-          riego: false,
+          riego: '',
           temp: 35,
           humedad: 60
         };
     }
+
+    async componentDidMount() {
+        try{
+            Helpers.getRiego((plantaRiego) => {
+                this.setState({
+                    riego: plantaRiego
+                })
+            })
+        } catch(error){
+            console.log(error)
+        }
+      }
 
     render(){
         return (
