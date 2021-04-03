@@ -68,6 +68,7 @@ export default class RegarScreen extends Component{
         
     }
 }
+    
 
 const styles = StyleSheet.create({
     container: {
