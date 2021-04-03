@@ -10,7 +10,11 @@ import LoginScreen from "./Screens/LoginScreen";
 import LogoutScreen from "./Screens/LogoutScreen";
 import PlantasScreen from "./Screens/PlantasScreen";
 import RegarScreen from "./Screens/RegarScreen";
- 
+
+//Firebase 
+import firebase from "./utils/Firebase";
+import "firebase/auth";
+
 
 const Stack = createStackNavigator();
 
@@ -34,9 +38,11 @@ function PlantasNavigator(){
 
 const Tab = createBottomTabNavigator();
 
+
 export default class App extends Component{
 
-    
+  
+
     constructor(props){
         super(props);
         this.state = {isLoggedIn:true}
