@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { AppLoading } from 'expo';
 import { StyleSheet, Text, View, Switch} from 'react-native';
 import {Icon} from "react-native-elements";
 import Helpers from  '../utils/Helpers';
@@ -8,25 +9,28 @@ export default class RegarScreen extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          riego: '',
+          riego: Helpers.getRiego(),
           temp: 35,
-          humedad: 60
+          humedad: 60,
+          isReady: true
         };
     }
 
-    async componentDidMount() {
-        try{
+    /*async componentDidMount() {
+        await
             Helpers.getRiego((plantaRiego) => {
                 this.setState({
                     riego: plantaRiego
                 })
             })
-        } catch(error){
-            console.log(error)
-        }
-      }
+            this.setState({ isReady: true });
+      }*/
 
     render(){
+        if (!this.state.isReady) {
+            return <AppLoading />;
+          }
+
         return (
            <View style={styles.container}>
                 
