@@ -16,14 +16,7 @@ export default class RegarScreen extends Component{
         };
     }
 
-    async componentDidMount() {
-        await 
-            Helpers.getRiego((plantaRiego) => {
-                this.setState({
-                    riego: plantaRiego
-                })
-                this.setState({ isReady: true });
-            })
+    async componentDidMount() { 
             Helpers.getHumedad((humedadPlanta) => {
                 this.setState({
                     humedad: humedadPlanta
@@ -33,6 +26,12 @@ export default class RegarScreen extends Component{
                 this.setState({
                     temp: tempPlanta
                 })
+            })
+            Helpers.getRiego((plantaRiego) => {
+                this.setState({
+                    riego: plantaRiego
+                })
+                this.setState({ isReady: true });
             })
       }
 

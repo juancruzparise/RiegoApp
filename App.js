@@ -1,3 +1,4 @@
+import './utils/fixTimerBug';
 import React, {Component} from 'react';
 import {Icon} from "react-native-elements";
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
