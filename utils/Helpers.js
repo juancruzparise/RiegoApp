@@ -11,8 +11,8 @@ class Helpers{
             callback(riegoPlanta)
           });
     }
-    static getHumedad(callback){
-        Firebase.database().ref('/planta/humedad').once('value').then(humedad => {
+    static getHumedadTierra(callback){
+        Firebase.database().ref('/planta/humedadTierra').once('value').then(humedad => {
             let humedadPlanta = ''
             if(humedad.val()){
                 humedadPlanta = humedad.val()
@@ -20,8 +20,17 @@ class Helpers{
             callback(humedadPlanta)
           });
     }
-    static getTemp(callback){
-        Firebase.database().ref('/planta/temp').once('value').then(temp => {
+    static getHumedadAmbiente(callback){
+        Firebase.database().ref('/planta/humedadAmbiente').once('value').then(humedad => {
+            let humedadAmbiente = ''
+            if(humedad.val()){
+                humedadAmbiente = humedad.val()
+            }
+            callback(humedadAmbiente)
+          });
+    }
+    static getTempAmbiente(callback){
+        Firebase.database().ref('/planta/temperaturaAmbiente').once('value').then(temp => {
             let tempPlanta = ''
             if(temp.val()){
                 tempPlanta = temp.val()

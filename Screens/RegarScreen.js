@@ -11,18 +11,24 @@ export default class RegarScreen extends Component{
         this.state = {
           riego: null,
           temp: null,
-          humedad: null,
+          humedadTierra: null,
+          humedadAmbiente: null,
           isReady: false
         };
     }
 
     async componentDidMount() { 
-            Helpers.getHumedad((humedadPlanta) => {
+            Helpers.getHumedadTierra((humedadPlanta) => {
                 this.setState({
-                    humedad: humedadPlanta
+                    humedadTierra: humedadPlanta
                 })
             })
-            Helpers.getTemp((tempPlanta) => {
+            Helpers.getHumedadAmbiente((humedadEntorno) => {
+                this.setState({
+                    humedadAmbiente: humedadEntorno
+                })
+            })
+            Helpers.getTempAmbiente((tempPlanta) => {
                 this.setState({
                     temp: tempPlanta
                 })
@@ -50,7 +56,7 @@ export default class RegarScreen extends Component{
 
             <View style={styles.texttodojunto}>
                 <Icon type="entypo" name="water" size={19}/>
-                <Text style={styles.innerTextt}>Humedad : {this.state.humedad}%</Text>   
+                <Text style={styles.innerTextt}>Humedad tierra: {this.state.humedadTierra}% ambiente: {this.state.humedadAmbiente}%</Text>     
             </View>            
 
             <View style={styles.switchCointainer}>  
